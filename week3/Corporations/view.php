@@ -18,7 +18,7 @@
         include __DIR__ . '/model/model_corporations.php';
         include __DIR__ . '/functions.php';
         if (isPostRequest()) {
-            $id = filter_input(INPUT_POST, 'teamId');
+            $id = filter_input(INPUT_POST, 'corpId');
             deleteCorps ($id);
 
         }
@@ -47,13 +47,17 @@
                     <td>
                         
                             <form action="view.php" method="post">
-                            <input type="hidden" name="corpsId" value="<?php echo $row['id']; ?>" />
+                            <input type="hidden" name="corpId" value="<?php echo $row['id']; ?>" />
                             <button class="btn glyphicon glyphicon-trash" type="submit"></button>
                             <?php echo $row['corp']; ?>
                         </form>
                    </td>
-                    <td><?php echo $row['division']; ?></td> 
-                    <td><a href="editTeam.php?action=update&teamId=<?php echo $row['id']; ?>">Edit</a></td> 
+                    <td><?php echo $row['incorp_dt']; ?></td> 
+                          <td><?php echo $row['email']; ?></td>
+                                <td><?php echo $row['zipcode']; ?></td> 
+                                      <td><?php echo $row['owner']; ?></td> 
+                                            <td><?php echo $row['phone']; ?></td> 
+                    <td><a href="editCorporations.php?action=update&corpId=<?php echo $row['id']; ?>">Edit</a></td> 
                     
                 </tr>
             <?php endforeach; ?>

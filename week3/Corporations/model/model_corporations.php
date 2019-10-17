@@ -2,11 +2,11 @@
 
     include (__DIR__ . '/db.php');
     
-    function getTeams () {
+    function getCorps () {
         global $db;
         
         $results = [];
-        $stmt = $db->prepare("SELECT id, teamName, division FROM teams");
+        $stmt = $db->prepare("SELECT id, corp, incorp_dt, email, zipcode, owner, phone FROM corps");
      
         
         if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
@@ -17,14 +17,18 @@
          return ($results);
     }
     
-    function addTeam ($t, $d) {
+    function addCorp ($corp_, $dt,$EM, $Zp, $owner_, $phone_ ) {
         global $db;
         
-        $stmt = $db->prepare("INSERT INTO teams SET teamName = :team, division = :division");
+        $stmt = $db->prepare("INSERT INTO corps SET corp = :corp, incorp_dt = :incorp_dt, email = :email, zipcode = :zipcode, owner = :owner, phone = :phone  ");
 
         $binds = array(
-            ":team" => $t,
-            ":division" => $d
+            ":corp" => $corp_,
+            ":incorp_dt" => $dt,
+            ":email" => $EM,
+            ":zipcode" => $Zp,
+            ":owner" => $owner_,
+            ":phone" => $phone_,
         );
             
         if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
@@ -34,15 +38,19 @@
         return ($results);
     }
     
-    function updateTeam ($id, $team, $division) {
+    function updateCorp ($id, $corp, $incorp_dt, $email, $zipcode, $owner, $phone) {
         global $db;
         
-        $stmt = $db->prepare("UPDATE teams SET teamName = :team, division = :division WHERE id=:id");
+        $stmt = $db->prepare("UPDATE corps SET corps SET corp = :corp, incorp_dt = :incorp_dt, email = :email, zipcode = :zipcode, owner = :owner, phone = :phone  WHERE id=:id");
         $results = "";
         $binds = array(
             ":id" => $id,
-            ":team" => $team,
-            ":division" => $division
+            ":corp" => $corp,
+            ":incorp_dt" => $incorp_dt,
+            ":email" => $email,
+            ":zipcode" => $zipcode,
+            ":owner" => $owner,
+            ":phone" => $phone,
         );
             
         if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
@@ -51,11 +59,11 @@
         
         return ($results);
     }
-    function deleteTeam ($id) {
+    function deleteCorps ($id) {
         global $db;
         
         $results = "Data was not deleted";
-        $stmt = $db->prepare("DELETE FROM teams WHERE id=:id");
+        $stmt = $db->prepare("DELETE FROM corps WHERE id=:id");
         
         $binds = array(
             ":id" => $id
@@ -68,11 +76,11 @@
         return ($results);
     }
     
-    function getTeam ($id) {
+    function getCorp ($id) {
          global $db;
         
         $result = [];
-        $stmt = $db->prepare("SELECT id, teamName, division FROM teams WHERE id=:id");
+        $stmt = $db->prepare("SELECT id, corp, incorp_dt, email, zipcode, owner, phone FROM corps WHERE id=:id");
         $binds = array(
             ":id" => $id
         );
