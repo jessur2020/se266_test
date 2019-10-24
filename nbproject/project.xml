@@ -3,11 +3,7 @@
     <type>org.netbeans.modules.php.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
-            <name>SE266 Fall 2019</name>
+            <name>SE266</name>
         </data>
-        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
-            <word>csnivndknvdk</word>
-            <word>csnivndknvdkvkdvkdnkd</word>
-        </spellchecker-wordlist>
     </configuration>
 </project>
