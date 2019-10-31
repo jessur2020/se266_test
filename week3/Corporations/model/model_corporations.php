@@ -20,7 +20,7 @@
     function addCorp ($corp_, $dt,$EM, $Zp, $owner_, $phone_ ) {
         global $db;
         
-        $stmt = $db->prepare("INSERT INTO corps SET corp = :corp, incorp_dt = :incorp_dt, email = :email, zipcode = :zipcode, owner = :owner, phone = :phone  ");
+        $stmt = $db->prepare("INSERT INTO corps SET corp = :corp, incorp_dt = :incorp_dt, email = :email, zipcode = :zipcode, owner = :owner, phone = :phone");
 
         $binds = array(
             ":corp" => $corp_,
@@ -41,7 +41,7 @@
     function updateCorp ($id, $corp, $incorp_dt, $email, $zipcode, $owner, $phone) {
         global $db;
         
-        $stmt = $db->prepare("UPDATE corps SET corps SET corp = :corp, incorp_dt = :incorp_dt, email = :email, zipcode = :zipcode, owner = :owner, phone = :phone  WHERE id=:id");
+        $stmt = $db->prepare("UPDATE corps SET corp = :corp, incorp_dt = :incorp_dt, email = :email, zipcode = :zipcode, owner = :owner, phone = :phone  WHERE id=:id");
         $results = "";
         $binds = array(
             ":id" => $id,
