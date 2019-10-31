@@ -108,8 +108,8 @@
                                     </tr>
                                    
                                     <tr>
-                                        <td><a href="#" class="notyet">Solution Week 5</a></td>
-                                        <td><a href="#" class="notyet">Zip file Week 5</a></td>
+                                        <td><a href="../week3/corporations/view.php" class="notyet">Lab 3 Corporations</a></td>
+                                        <td><a href="../week3/week3.zip" class="notyet">Zip file Lab 3 Corporations</a></td>
                                     </tr>
                                     <tr>
                                         <td><a href="#" class="notyet">Solution Week 6</a></td>
