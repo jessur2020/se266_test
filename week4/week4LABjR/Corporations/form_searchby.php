@@ -1,89 +1,32 @@
 
-<form action="#" method="post">
-    Search By:
-    <select name="column">
-        <option value="id">id</option>
-        <option value="corp">corp</option>
-        <option value="incorp_dt">incorp_dt</option>
-        <option value="email">email</option>
-        <option value="owner">owner</option>
-        <option value="phone">phone</option>
-        
-    </select>
-    <input type="hidden" name="action" value="Search" />
-    <input type="submit" name="search" value="Search"><br /><br />
-</form>
+<div class="container">
+    <form action="#" method="get">
 
-/* 
-********************************************************************************************
- */
- 
-        <?php
- 
-        include __DIR__ . '/model/model_corporations.php';
-        include __DIR__ . '/functions.php';
-    include './includes/form_orderby.php';
-    
-    $action = filter_input(INPUT_POST, 'action');
-    
-    if ( $action === 'Search' ) {
-        echo 'Search';
-    }
-    if ( $action === 'OrderBy' ) {
-        echo 'Order By';
-    }
-?> 
+        <fieldset>
 
+            <legend><b>Search Data</b></legend>
 
+            <label>Column:</label>
 
-<form action="#" method="post">
-    Search By:
-    <select name="column">
-        <option value="id">id</option>
-        <option value="corp">corp</option>
-        <option value="incorp_dt">incorp_dt</option>
-        <option value="email">email</option>
-        <option value="owner">owner</option>
-        <option value="phone">phone</option>
-        
-    </select>
-    <input type="hidden" name="action" value="Search" />
-    <input type="submit" name="search" value="Search"><br /><br />
-</form>
-        
-    <h3>Serach Corporations</h3>
-    
+            <select name="colum">
+                <option value="id">ID</option>
+                <option value="corp">Corp</option>
+                <option value="incorp_dt">Date</option>
+                <option value="email">Email</option>
+                <option value="zipcode">Zip Code</option>
+                <option value="owner">Owner</option>
+                <option value="phone">Phone</option>
+            </select>
 
-    <form class="form-horizontal" action="#" method="post">
-       
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Search by Corporation Name:</label>
-      
+            <label>Keyword:</label>
+            <input name="keyword" type="search" placeholder="Search...." />
+            <input type="hidden" name="action" value="search" />
+            <input type="submit" value="Search" />
 
-     <div class="col-sm-10">
+            <input type="submit" name="action" value="Reset"/>
 
-         
-                  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Search by
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Corporation</a></li>
-      <li><a href="#">Date</a></li>
-      <li><a href="#">Email</a></li>
-       <li><a href="#">Owner</a></li>
-      <li><a href="#">Phone</a></li>
-    </ul>
-  </div>
-      <input type="radio" name="optradio" checked>Ascending</label>
-      <input type="radio" name="optradio">Descending </label>
-     
+        </fieldset>
 
-        <input type="text" class="form-control" id="corp" placeholder="Enter company name" name="corp"  value="TEST GET">
-      </div>
-    </div>
-  <input type="hidden" name="action" value="Search" />
-    <input type="submit"  class="btn btn-default" name="search" value="Search">
-    <button type="reset"  class="btn btn-default" value="Reset">Reset</button>
-
-    
     </form>
+
+</div>

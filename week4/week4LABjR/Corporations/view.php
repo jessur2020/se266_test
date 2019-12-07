@@ -26,19 +26,58 @@
         
     ?>
 
-  <?php
-    include __DIR__ . '/form_searchby.php';
-    include __DIR__ . '/form_orderby.php';
-    
-    $action = filter_input(INPUT_POST, 'action');
-    
-    if ( $action === 'Search' ) {
-        echo 'Search';
-    }
-    if ( $action === 'OrderBy' ) {
-        echo 'Order By';
-    }
-?>
+        <?php
+          
+           include_once './functions/dbConnect.php';
+           include_once './functions/dbData.php';
+           $results = getAllCorpData();
+           
+           // hidden field with same name but different value in sortForm and searchForm
+           $action = filter_input(INPUT_GET, 'action');
+           
+           if ( $action === 'sort' )
+           {
+               $column = filter_input(INPUT_GET, 'colum');
+               $order = filter_input(INPUT_GET, 'order');
+               
+               $count = rowCount1($column, $order);
+               
+               if($count > 0){
+                echo "ROW COUNT: {$count}";
+              }
+              else
+              {
+                  echo "NO RESULTS FOUND!!";
+              }
+               $results = getCorpSort($column, $order);
+                           
+           }
+           
+           else if ( $action === 'search' )
+           {
+               $colum = filter_input(INPUT_GET, 'colum');
+               $keyword = filter_input(INPUT_GET, 'keyword');
+               
+              $count = rowCount2($colum, $keyword);
+              
+              if($count > 0){
+                echo "ROW COUNT: {$count}";
+              }
+              else
+              {
+                  echo "NO RESULTS FOUND!!";
+              }
+               $results = getCorpSearch($colum, $keyword);
+           }
+           else if ($action === 'reset')
+           {
+               $results = getAllCorpData();
+           }
+           
+             // include two forms 
+            include './includes/searchForm.php';
+            include './includes/sortForm.php';
+        ?>  
 
         
     <table class="table table-striped">
