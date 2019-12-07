@@ -116,9 +116,21 @@
                                         <td><a href="#" class="notyet">Zip file Week 6</a></td>
                                     </tr>
                                     <tr>
+                                    
                                         <td><a href="#" class="notyet">Solution Week 7</a></td>
                                         <td><a href="#" class="notyet">Zip file Week 7</a></td>
                                     </tr>
+                                        <tr>
+                                            <td><a href="../Movies/Movie Review Proposal/Movie Review Proposal.pdf" class="notyet">Movie Review Proposal</a></td>
+                                        <td><a href="#" class="notyet">Zip file WeeK</a></td>
+                                    </tr>
+                                          </tr>
+                                        <tr>
+                                      
+                                            <td><a href="../Movies/Movie Review - Prototype/Movie Review - Prototype.pdf" class="notyet">Movie Review - Prototype</a></td>
+                                          <td><a href="#" class="notyet">Zip file Week</a></td>
+                                    </tr>
+                                    
                                     <tr>
                                         <td><a href="#" class="notyet">Solution Week 8</a></td>
                                         <td><a href="#" class="notyet">Zip file Week 8</a></td>
