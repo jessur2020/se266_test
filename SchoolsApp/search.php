@@ -1,28 +1,29 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['use'])) {
-    header('Location: login.php');
-}
-echo "Welcome ";
-echo $_SESSION['use'];
-echo "<a href='logout.php'> Logout</a> ";
-
-include __DIR__ . '/models/model_schools.php';
-include __DIR__ . '/includes/functions.php';
-
-$school = filter_input(INPUT_POST, 'schoolName');
-$city = filter_input(INPUT_POST, 'schoolCity');
-$state = filter_input(INPUT_POST, 'schoolState');
-
-$getSchools = getSchools($school, $city, $state);
-?>
 
 <head>
     <title>Schools Search</title>
 </head>
 
 <body>
+
+    <?php
+    session_start();
+
+    if (!isset($_SESSION['use'])) {
+        header('Location: login.php');
+    }
+    echo "Welcome ";
+    echo $_SESSION['use'];
+    echo "<a href='logout.php'>Logout</a> ";
+
+    include __DIR__ . '/models/model_schools.php';
+    include __DIR__ . '/includes/functions.php';
+
+    $school = filter_input(INPUT_POST, 'schoolName');
+    $city = filter_input(INPUT_POST, 'schoolCity');
+    $state = filter_input(INPUT_POST, 'schoolState');
+
+    $getSchools = getSchools($school, $city, $state);
+    ?>
 
     <h1>Schools Search</h1>
 
@@ -56,13 +57,13 @@ $getSchools = getSchools($school, $city, $state);
         </thead>
         <tbody>
 
-<?php foreach ($getSchools as $row): ?>
+            <?php foreach ($getSchools as $row): ?>
                 <tr>
                     <td><?php echo $row['schoolName']; ?></td>
                     <td><?php echo $row['schoolCity']; ?></td>
                     <td><?php echo $row['schoolState']; ?></td>
                 </tr>
-<?php endforeach; ?>
+            <?php endforeach; ?>
 
         </tbody>
     </table>

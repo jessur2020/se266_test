@@ -1,6 +1,20 @@
-
-
-     <?php
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style type="text/css">
+        #mainDiv {margin-left: 100px; margin-top: 100px;}
+        .col1 {width: 100px; float: left;}
+        .col2 {float: left;}
+        .rowContainer {clear: left; height: 40px;}
+        .error {margin-left: 100px; clear: left; height: 40px; color: red;}
+    </style>
+<title>Schools Upload</title>
+</head>
+<body>
+    
+        <?php
     
         session_start();
         include __DIR__ . '/model/model_schools.php';
@@ -33,29 +47,13 @@
             
             else
             {
-                echo "Wrong Username or Password";
+                echo "Invalid Username or Password";
             }
             
         }
         
         
-    ?>    
-
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <style type="text/css">
-        #mainDiv {margin-left: 100px; margin-top: 100px;}
-        .col1 {width: 100px; float: left;}
-        .col2 {float: left;}
-        .rowContainer {clear: left; height: 40px;}
-        .error {margin-left: 100px; clear: left; height: 40px; color: red;}
-    </style>
-<title>Schools Upload</title>
-</head>
-<body>
+    ?>   
 
     <div id="mainDiv">
         <form method="post" action="login.php">

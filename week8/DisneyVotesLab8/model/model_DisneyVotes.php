@@ -27,7 +27,10 @@ function insertDisneyVote($character_id) {
     return (getVotes());
 }
 
+
+
 function getVotes() {
+    
     global $db;
     $sql = "SELECT DisneyCharacterName, COUNT(*) AS VoteCount FROM DisneyCharacters c 
                 LEFT OUTER JOIN DisneyVotes v ON c.DisneyCharacterID=v.DisneyCharacterID
