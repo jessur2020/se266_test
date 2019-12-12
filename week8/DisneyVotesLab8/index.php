@@ -71,7 +71,7 @@
 
                     <td><img src =images/<?php echo $row['DisneyCharacterImage']; ?>></td>
 
-                    <td><input type ="button" class="btn" data-character-id ="<?php echo $row['DisneyCharacterId']; ?>" value="Vote for <?php echo $row['DisneyCharacterName']; ?>"></td>
+                    <td><input type ="button" class="btn" data-idx ="<?php echo $row['DisneyCharacterId']; ?>" value="Vote for <?php echo $row['DisneyCharacterName']; ?>"></td>
 
   </tr>
 <?php endforeach; ?>
@@ -123,7 +123,9 @@
          displayChart ();
           $(":button").click (function (e) {
             var idx = $(this).data("idx");
-            $.post ("vote.php", {DisneyCharacterId:idx}, function (data) {
+            
+            $.post ("insertvote.php", {DisneyCharacterId:idx}, function (data) {
+                console.log(data);
                 displayChart ();
             });
         });
