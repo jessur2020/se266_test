@@ -7,13 +7,4 @@ function isPostRequest() {
 
 
 
-
-
-
-
-
-
-
-
-
 ?>

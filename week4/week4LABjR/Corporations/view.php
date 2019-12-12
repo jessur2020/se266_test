@@ -16,7 +16,7 @@
     <?php
         
         include __DIR__ . '/model/model_corporations.php';
-        include __DIR__ . '/functions.php';
+        include __DIR__ . '/functions/functions.php';
         if (isPostRequest()) {
             $id = filter_input(INPUT_POST, 'corpId');
             deleteCorps ($id);
@@ -28,7 +28,7 @@
 
         <?php
           
-           include_once './functions/dbConnect.php';
+           include_once './functions/getdb.php';
            include_once './functions/dbData.php';
            $results = getAllCorpData();
            

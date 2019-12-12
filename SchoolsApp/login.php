@@ -6,8 +6,7 @@
         include __DIR__ . '/model/model_schools.php';
         include __DIR__ . '/functions.php';
         
-        
-        //page load process
+   
         if(isset($_SESSION['use']))
         {
              header('Location: search.php');

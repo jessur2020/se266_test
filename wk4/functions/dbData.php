@@ -1,15 +1,16 @@
 <?php
-include_once "getdb.php";
+include_once "dbConnect.php";
 function getAllCorpData(){
 
-    $db = dbconnect();
+    $db = dbConnect();
     
-    
+
     $stmt = $db->prepare("SELECT * FROM corps");
     $results = array();
-   
+ 
+  
     if ($stmt->execute() && $stmt->rowCount() > 0) {
-
+        // fetches all rows for the conditions of SQL statement as an Associative Array
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
@@ -18,16 +19,16 @@ function getAllCorpData(){
 }
 function getCorpSort($column, $order)
 {
-  
+    // establish a database connection
     $db = dbconnect();
     
-    
+    // prepare the SQL statement
     $stmt = $db->prepare("SELECT * FROM corps ORDER BY $column $order");
     
      $results = array();
 
     if ($stmt->execute() && $stmt->rowCount() > 0) {
-   
+
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     return $results;
@@ -37,13 +38,13 @@ function getCorpSearch ($colum, $keyword)
 
     $db = dbconnect();
     
-     
+
     $stmt = $db->prepare("SELECT * FROM corps WHERE ($colum LIKE '%$keyword%')");
     
     $results = array();
 
     if ($stmt->execute() && $stmt->rowCount() > 0) {
-
+        // fetches all rows for the conditions of SQL statement as an Associative Array
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         
@@ -54,14 +55,14 @@ function rowCount1($value1, $value2)
 
     $db = dbconnect();
     
- 
+    
     $stmt = $db->prepare("SELECT * FROM corps ORDER BY $value1 $value2");
     
     
      $results = array();
 
     if ($stmt->execute() && $stmt->rowCount() > 0) {
-        
+       
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $rowCount = $stmt->rowCount();
         }
@@ -73,12 +74,12 @@ function rowCount2($value1, $value2)
 
     $db = dbconnect();
     
-
+     // prepare the SQL statement
     $stmt = $db->prepare("SELECT * FROM corps WHERE ($value1 LIKE '%$value2%')");    
      $results = array();
 
     if ($stmt->execute() && $stmt->rowCount() > 0) {
-     
+
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $rowCount = $stmt->rowCount();
         }

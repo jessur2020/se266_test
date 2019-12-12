@@ -98,8 +98,8 @@
                                     </tr>
                                     
                                      <tr>
-                                        <td><a href="#" class="notyet">Credit Card Example</a></td>
-                                        <td><a href="#" class="notyet">Zip file Credit Card</a></td>
+                                         <td><a href="lab1.php" class="notyet">Credit Card Example</a></td>
+                                         <td><a href="lab1.zip" class="notyet">Zip file Credit Card</a></td>
                                     </tr>
                                     
                                     <tr>
@@ -128,6 +128,11 @@
                                         <tr>
                                       
                                             <td><a href="../Movies/Movie Review - Prototype/Movie Review - Prototype.pdf" class="notyet">Movie Review - Prototype</a></td>
+                                          <td><a href="#" class="notyet">Zip file Week</a></td>
+                                    </tr>
+                                    <tr>
+                                      
+                                        <td><a href="../Movies/Movie Review - Technical Spec/Movie Review - Technical Spec.pdf" class="notyet">Movie Review Technical Spec </a></td>
                                           <td><a href="#" class="notyet">Zip file Week</a></td>
                                     </tr>
                                     

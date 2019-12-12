@@ -1,10 +1,14 @@
 <?php
- include './db.php';
+
+ include './dbconnect.php';
  include './functions.php';
  
  $db = getDatabase();
+
  if (isset($_POST['DisneyCharacterId'])) {
     $stmt = $db->prepare("INSERT INTO disneyvotes SET DisneyCharacterId=:DisneyCharacterId, VoterIp=:VoterIP, VoterDateTime=NOW()");
+
+
     $DisneyCharacterId  = filter_input(INPUT_POST, 'DisneyCharacterId');
     
     $ip = getIpAddress();
@@ -13,6 +17,7 @@
     ":DisneyCharacterId" => $DisneyCharacterId,
     ":VoterIP" => $ip
     );
+
     if ($stmt->execute($binds)) {
         $results = 'Data Added';   
     } 
@@ -46,3 +51,7 @@
 }
   
 ?>
+
+
+
+
