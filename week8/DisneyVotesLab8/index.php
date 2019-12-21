@@ -64,16 +64,17 @@
          </div>
 
 -->
+  <div class="main"><h1>Vote for your favorite Disney Character</h1>
+            <br/>
                      <div class="dchar" id="DisneyCharacterId" >
 <?php foreach ($getCharacters as $row): ?>
                     <tr>
                     <h1><td><?php echo $row['DisneyCharacterName']; ?></td></h1>    
 
-                    <td><img src =images/<?php echo $row['DisneyCharacterImage']; ?>></td>
+                  <?php echo  "<td><img src='images/".$row['DisneyCharacterImage']."'</td>"; echo "</br>" ?>
 
-                    <td><input type ="button" class="btn" data-idx ="<?php echo $row['DisneyCharacterId']; ?>" value="Vote for <?php echo $row['DisneyCharacterName']; ?>"></td>
+                    <td><input type ="button" class="btn btn-success button-size" data-idx ="<?php echo $row['DisneyCharacterId']; ?>" value="Vote for <?php echo $row['DisneyCharacterName']; ?>"></td>
 
-  </tr>
 <?php endforeach; ?>
             <?php 
                 $results = getVotes();
@@ -84,6 +85,8 @@
                 <canvas id="myChart" ></canvas>
             </div>
         </div>
+                    </div>
+
         <script>        
             function displayChart () {
              $.get ("vote.php", function (data) {

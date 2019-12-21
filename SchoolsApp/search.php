@@ -8,15 +8,12 @@
     <?php
     session_start();
 
-    if (!isset($_SESSION['use'])) {
+    if (!isset($_SESSION['userName'])) {
         header('Location: login.php');
     }
-    echo "Welcome ";
-    echo $_SESSION['use'];
-    echo "<a href='logout.php'>Logout</a> ";
 
     include __DIR__ . '/models/model_schools.php';
-    include __DIR__ . '/includes/functions.php';
+    include __DIR__ . '/functions.php';
 
     $school = filter_input(INPUT_POST, 'schoolName');
     $city = filter_input(INPUT_POST, 'schoolCity');
@@ -46,6 +43,14 @@
         <br>
         <button type="submit" name="search" value="Search">Search</button>
     </form>
+  <?php
+//include (__DIR__ . '/logout.php');
+
+session_start();
+session_destroy();
+echo '<a href="login.php"><input type="submit" name="logout" value="Logout" class="btn btn-danger"></a>'
+              
+?>
 
     <table class="table table-striped">
         <thead>

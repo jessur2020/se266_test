@@ -1,10 +1,13 @@
 
 <?php 
+
 if (isset ($_FILES['file1'])) {
     echo "File uploaded";
     header('Location: search.php');
 }
 ?>
+
+
 
 </form>
         
@@ -22,6 +25,7 @@ if (isset ($_FILES['file1'])) {
 <title>Schools Upload</title>
 </head>
     <body>
+        
         <div id="mainDiv">
             <h2>Upload File</h2>
             <p>
@@ -33,7 +37,17 @@ if (isset ($_FILES['file1'])) {
                 <input type="submit" value="Upload">
 
             </form>
+                         <?php
+//include (__DIR__ . '/logout.php');
+
+session_start();
+session_destroy();
+echo '<a href="login.php"><input type="submit" name="logout" value="Logout" class="btn btn-danger"></a>'
+              
+?>
         </div>
-        
+    
+
+         
     </body>
 </html>

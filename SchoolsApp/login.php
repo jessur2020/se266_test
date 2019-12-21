@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,46 +15,22 @@
 </head>
 <body>
     
-        <?php
+    <?php
     
-        session_start();
-        include __DIR__ . '/model/model_schools.php';
-        include __DIR__ . '/functions.php';
-        
+session_start();
+$userName="donald";
+$password="duck";
+
+if(isset($_POST['userName']) && $_POST['userName'] == $userName && $_POST['password'] == $password)
+{
+    header("Location: upload.php");
+}
+else
+{
    
-        if(isset($_SESSION['use']))
-        {
-             header('Location: search.php');
-        }
-        
-        if(isset($_POST['login']))
-        {
-            
-            $user = $_POST["user"];
-            
-            $pass = $_POST["pass"];
-            
-            
-            $result = checkLogin($user, $pass);
-            if($results = true){
-                
-                $_SESSION['use'] = $user;
-                $deleteAllSchools = deleteAllSchools();
-                $file_name ='schools.csv';
-                $insertSchools = insertSchools($file_name);
-                header('Location: search.php');
-                
-            }
-            
-            else
-            {
-                echo "Invalid Username or Password";
-            }
-            
-        }
-        
-        
-    ?>   
+}
+
+?>
 
     <div id="mainDiv">
         <form method="post" action="login.php">

@@ -93,8 +93,43 @@
          return ($result);
     }
     
- 
+    //sorting
+    function corpSort($db,$sort,$dir){
+        ?>
+        <?php
+        $sql = "SELECT * FROM corps ORDER BY $sort $dir";
+        $sql = $db->prepare($sql);
+        $sql->execute();
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
+	
+	//search
+    function corpSearch($db,$search,$term){
+        ?>
+        <?php
+        if($search == "id")
+        {
+            $sql = "SELECT * FROM corps WHERE id = $term";
+            $sql = $db->prepare($sql);
+            $sql->bindValue(':id',$term,PDO::PARAM_INT);
+            $sql->execute();
+            $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
+        }
+        else {
+            $sql = "SELECT * FROM corps WHERE $search LIKE '%{$term}%'";
+            $sql = $db->prepare($sql);
+            $sql->bindParam(':term', $term, PDO::PARAM_STR);
+            $sql->execute();
+            $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
+        }
+    }
+    
+ ?>
     
     
 ?>
+
 
